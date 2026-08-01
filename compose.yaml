@@ -1,0 +1,62 @@
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sweetbite_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./backend:/var/www
+    depends_on:
+      - db
+    networks:
+      - sweetbite
+
+  webserver:
+    image: nginx:latest
+    container_name: sweetbite_nginx
+    restart: unless-stopped
+    ports:
+      - "8085:80"
+    volumes:
+      - ./backend:/var/www
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - sweetbite
+
+  db:
+    image: mysql:8.0
+    container_name: sweetbite_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: sweetbite_db
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - sweetbite
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: sweetbite_phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+    networks:
+      - sweetbite
+
+volumes:
+  mysql_data:
+
+networks:
+  sweetbite:

@@ -1,0 +1,21 @@
+# Laravel
+backend/vendor/
+backend/node_modules/
+backend/.env
+
+backend/public/storage
+
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+
+# Flutter
+quickmeal_app/
+
+# IDE
+.vscode/
+.idea/
+
+Thumbs.db
+.DS_Store
