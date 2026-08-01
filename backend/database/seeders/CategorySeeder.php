@@ -11,17 +11,22 @@ class CategorySeeder extends Seeder
     {
         Category::insert([
             [
-                'name' => 'Rice Bowl',
+                'name' => 'Cake',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Minuman',
+                'name' => 'Bread',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => 'Snack',
+                'name' => 'Pastry',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Cookies',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
