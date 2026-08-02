@@ -1,5 +1,6 @@
 services:
 
+  # Laravel Application (PHP-FPM)
   app:
     build:
       context: .
@@ -14,6 +15,7 @@ services:
     networks:
       - sweetbite
 
+  # Nginx Web Server
   webserver:
     image: nginx:latest
     container_name: sweetbite_nginx
@@ -28,6 +30,7 @@ services:
     networks:
       - sweetbite
 
+  # MySQL Database
   db:
     image: mysql:8.0
     container_name: sweetbite_db
@@ -42,6 +45,7 @@ services:
     networks:
       - sweetbite
 
+  # phpMyAdmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: sweetbite_phpmyadmin
@@ -55,8 +59,10 @@ services:
     networks:
       - sweetbite
 
+# Docker Volume
 volumes:
   mysql_data:
 
+# Docker Network
 networks:
   sweetbite:
