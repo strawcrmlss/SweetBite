@@ -24,9 +24,9 @@ body{
 /* ================= SIDEBAR ================= */
 
 .sidebar{
-    width:270px;
+    width:280px;
     background:linear-gradient(180deg,#CC6FA5,#D98AB8);
-    padding:30px 35px;
+    padding:30px 25px;
     display:flex;
     flex-direction:column;
     box-shadow:5px 0 20px rgba(204,111,165,.18);
